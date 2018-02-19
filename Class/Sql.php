@@ -9,14 +9,14 @@ class Sql extends PDO{
 		$this->con = new PDO("pgsql:host=localhost;port=5432;dbname=dtphp7;user=postgres;password=postgres123");
 	}
 
-	private function setParams($statment, $parameters = array()){
+	private function setParams($statement, $parameters = array()){
 		foreach ($parameters as $key => $value) {
-			$this->setParam($key, $value);
+			$this->setParam($statement, $key, $value);
 		}
 	}
 
-	private function setParam($statment, $Key, $value){
-		$statment->bindParam($key, $value);
+	private function setParam($statement, $key, $value){
+		$statement->bindParam($key, $value);
 	}
 
 	public function query($rawQuery, $params = array()){
